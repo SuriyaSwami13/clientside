@@ -1,0 +1,91 @@
+<html>
+	<head>
+		<title>Exercise 1</title>
+	<body>
+		<div id="demo">
+		
+		</div>
+		
+		<div id="student">
+		
+		</div>
+		<div id="student2">
+		
+		</div>
+	</body>
+	<script>
+		var circle = {
+			radius:5,
+			color:"blue",
+			getDiameter : function()
+			{
+			return(circle.radius * 2);
+			},
+			getArea : function (){
+			return(3.14 * this.radius * this.radius);
+			},
+		}
+		
+		//document.write(circle.color);
+		//document.write(circle.getDiameter());
+		//document.write(circle.getArea());
+		var student = {
+			id : 1,
+			name : "Suriya",
+			address: "Dongri",
+			grades : [100,100,100],
+			
+			addGrade : function(grades)
+			{
+				student.grades.push(grades);
+				
+			},
+			
+			getAverage : function()
+			{
+				for (i=0;i<student.grades.length;i++)
+				{
+					var result = this.grades[i];
+				}
+				return (result / student.grades.length);
+			}
+		}
+		
+		var Circle = function(radius,color)
+		{
+			this.radius = radius;
+			this.color = color;
+		}
+		Circle.prototype.getDiameter = function()
+		{
+			return(circle.radius * 2);
+		}
+		Circle.prototype.getArea = function()
+		{
+			return(3.14 * this.radius * this.radius);
+		}
+		
+		var circObj = new Circle(5,"red");
+		
+		document.getElementById("demo").innerHTML =  "Radius:"+circObj.radius+"<br>Diameter:"+circObj.getDiameter()+"<br>Area:"+circObj.getArea();
+		
+		document.getElementById("demo").innerHTML = "Radius:"+circle.radius+"<br>Diameter:"+circle.getDiameter()+"<br>Area:"+circle.getArea();
+		
+		document.getElementById("student").innerHTML = "Id:"+student.id+"<br>Name:"+student.name+"<br>Address:"+student.address+"<br>Grades:"+student.grades.toString()+
+		"<br>Average:"+student.getAverage()+"<br>Adding Grade 50..";
+		student.addGrade(50)
+		document.getElementById("student").innerHTML += "<br>Average:"+student.getAverage();
+	</script>
+	<style>
+		#student{
+			border: 2px solid black;
+			width:40%;
+		}
+		#demo{
+			border: 2px solid black;
+			width:40%;
+		}
+	</style>
+	</head>
+	
+</html>
